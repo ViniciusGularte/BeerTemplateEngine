@@ -1,0 +1,22 @@
+{
+  "name": "vinitemplateengine",
+  "version": "1.0.0",
+  "description": "My own template engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViniciusGularte/ViniTemplateEngine.git"
+  },
+  "keywords": [
+    "templateengine"
+  ],
+  "author": "Vinicius Gularte",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/ViniciusGularte/ViniTemplateEngine/issues"
+  },
+  "homepage": "https://github.com/ViniciusGularte/ViniTemplateEngine#readme"
+}

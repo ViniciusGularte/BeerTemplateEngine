@@ -4,6 +4,8 @@ const { promisify } = require('util')
 const ejsRenderFile = promisify(require('ejs').renderFile)
 const globP = promisify(require('glob'))
 const config = require('../site.config')
+const dataUser = require('../src/data/user')
+const minify = require('html-minifier').minify;
 
 const srcPath = './src'
 const distPath = './public'
@@ -20,7 +22,6 @@ globP('**/*.ejs', { cwd: `${srcPath}/pages` })
     files.forEach((file) => {
       const fileData = path.parse(file)
       const destPath = path.join(distPath, fileData.dir)
-      const dataUser = require('../src/data/vinicius')
 
       let pageContent;
       // create destination directory
@@ -35,6 +36,10 @@ globP('**/*.ejs', { cwd: `${srcPath}/pages` })
         })
         .then((layoutContent) => {
           // save the html file
+          layoutContent =  minify(layoutContent, {
+            removeAttributeQuotes: true,
+            collapseWhitespace:true
+          });
           fse.writeFile(`${destPath}/${fileData.name}.html`, layoutContent)
         })
         .catch((err) => { console.error(err) })

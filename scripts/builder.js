@@ -20,7 +20,7 @@ globP('**/*.ejs', { cwd: `${srcPath}/pages` })
     files.forEach((file) => {
       const fileData = path.parse(file)
       const destPath = path.join(distPath, fileData.dir)
-
+      let pageContent;
       // create destination directory
       fse.mkdirs(destPath)
         .then(() => {

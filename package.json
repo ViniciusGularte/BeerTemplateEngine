@@ -1,10 +1,10 @@
 {
-  "name": "vinitemplateengine",
+  "name": "portfoliotemplateengine",
   "version": "1.0.0",
-  "description": "My own template engine",
+  "description": "My own template engine for make portfolios",
   "main": "index.js",
   "scripts": {
-    "build": "node ./scripts/build",
+    "build": "node ./scripts/builder",
     "serve": "serve ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

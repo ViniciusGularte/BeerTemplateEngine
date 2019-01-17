@@ -6,16 +6,20 @@ const globP = promisify(require('glob'))
 const config = require('../site.config')
 const dataUser = require('../src/data/user')
 const minify = require('html-minifier').minify;
-
+const cleanCSS = require('clean-css');
 const srcPath = './src'
 const distPath = './public'
 
 // clear destination folder
 fse.emptyDirSync(distPath)
 
-// copy assets folder
-fse.copy(`${srcPath}/assets`, `${distPath}/assets`)
+// copy assets  folder
+fse.copySync(`${srcPath}/assets/`, `${distPath}/assets/`)
 
+//Minify css style
+const inputCss  = fse.readFileSync(`${srcPath}/assets/css/style.css`,'utf8')
+const outputCss = new cleanCSS({format: 'beautify',compatibility: 'ie9'}).minify(inputCss)
+fse.writeFileSync(`${distPath}/assets/css/style.css`, outputCss.styles)
 // read page templates
 globP('**/*.ejs', { cwd: `${srcPath}/pages` })
   .then((files) => {
@@ -35,12 +39,13 @@ globP('**/*.ejs', { cwd: `${srcPath}/pages` })
           return ejsRenderFile(`${srcPath}/layouts/default.ejs`, Object.assign({}, config,dataUser, { body: pageContents }))
         })
         .then((layoutContent) => {
-          // save the html file
+          // save the html file and minify
           layoutContent =  minify(layoutContent, {
             removeAttributeQuotes: true,
             collapseWhitespace:true
           });
-          fse.writeFile(`${destPath}/${fileData.name}.html`, layoutContent)
+
+          fse.writeFile(`${distPath}/${fileData.name}.html`, layoutContent)
         })
         .catch((err) => { console.error(err) })
     })

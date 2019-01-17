@@ -1,4 +1,3 @@
-$color: 'black';
-div{
-  background-color: $color;
-}
+@import 'body.scss';
+@import 'profile.scss';
+@import 'footer.scss';

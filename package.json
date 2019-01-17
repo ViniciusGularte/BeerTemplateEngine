@@ -4,7 +4,7 @@
   "description": "My own template engine for make portfolios",
   "main": "index.js",
   "scripts": {
-    "build": "node-sass ./src/assets/scss/style.main.scss:./src/assets/css/style.main.css --style compressed && node ./scripts/builder",
+    "build": "sass ./src/assets/scss/style.main.scss:./src/assets/css/style.main.css --style compressed && node ./scripts/builder",
     "serve": "serve ./public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -3,6 +3,7 @@ const path = require('path')
 const { promisify } = require('util')
 const ejsRenderFile = promisify(require('ejs').renderFile)
 const globP = promisify(require('glob'))
+const glob = require('glob')
 const config = require('../site.config')
 const dataUser = require('../src/data/user')
 const minify = require('html-minifier').minify;
@@ -10,16 +11,17 @@ const cleanCSS = require('clean-css');
 const srcPath = './src'
 const distPath = './public'
 
-// clear destination folder
+// clear destination folder and make a copy
 fse.emptyDirSync(distPath)
-
-// copy assets  folder
-fse.copySync(`${srcPath}/assets/`, `${distPath}/assets/`)
-
+const filesToAssets = glob.sync('**/*.@(main.css|jpg)', { cwd: `${srcPath}/assets` })
+filesToAssets.forEach((file) =>{
+  console.log(file)
+  fse.copySync(`${srcPath}/assets/${file}`, `${distPath}/assets/${file}`)
+})
 //Minify css style
-const inputCss  = fse.readFileSync(`${srcPath}/assets/css/style.css`,'utf8')
+const inputCss  = fse.readFileSync(`${srcPath}/assets/css/style.main.css`,'utf8')
 const outputCss = new cleanCSS({format: 'beautify',compatibility: 'ie9'}).minify(inputCss)
-fse.writeFileSync(`${distPath}/assets/css/style.css`, outputCss.styles)
+fse.writeFileSync(`${distPath}/assets/css/style.main.css`, outputCss.styles)
 // read page templates
 globP('**/*.ejs', { cwd: `${srcPath}/pages` })
   .then((files) => {

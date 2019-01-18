@@ -3,7 +3,7 @@
   const ejs = require('ejs')
   const glob = require('glob')
   const minify = require('html-minifier').minify;
-  
+
   const config = require('../site.config')
   const dataUser = require('../src/data/user')
   const srcPath = './src'
@@ -25,7 +25,12 @@
     fse.mkdirsSync(destPath);
     // read page file
     const data = fse.readFileSync(`${srcPath}/pages/${file}`, 'utf-8');
-    let pageContent = ejs.render(data, Object.assign({}, config,dataUser))
+    let pageContent = ejs.render(
+      data, Object.assign({}, config,dataUser,{
+        filename: `${srcPath}/pages/${file}`
+      }
+      )
+    )
     // render layout with page contents
     const layout = 'default';
     const layoutFileName = `${srcPath}/layouts/${layout}.ejs`;
@@ -34,6 +39,7 @@
       layoutData,
       Object.assign({}, config, dataUser,{
         body: pageContent,
+        filename: layoutFileName
       })
     );
     //Minify the html

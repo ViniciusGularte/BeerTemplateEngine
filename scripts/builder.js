@@ -22,25 +22,24 @@
 
     // create destination directory
     fse.mkdirsSync(destPath);
-
-    pageContent = ejs.render(`${srcPath}/pages/${file}`, Object.assign({}, config,dataUser))
+    // read page file
+    const data = fse.readFileSync(`${srcPath}/pages/${file}`, 'utf-8');
+    let pageContent = ejs.render(data, Object.assign({}, config,dataUser))
     // render layout with page contents
     const layout = 'default';
     const layoutFileName = `${srcPath}/layouts/${layout}.ejs`;
     const layoutData = fse.readFileSync(layoutFileName, 'utf-8');
     const completePage = ejs.render(
       layoutData,
-      Object.assign({}, {
+      Object.assign({}, config, dataUser,{
         body: pageContent,
-        config,
-        dataUser
       })
     );
     //Minify the html
-    completePage =  minify(completePage, {
+    const completePageMinified =  minify(completePage, {
       removeAttributeQuotes: true,
       collapseWhitespace:true
     });
     // save the html file
-    fse.writeFileSync(`${destPath}/${fileData.name}.html`, completePage);
+    fse.writeFileSync(`${destPath}/${fileData.name}.html`, completePageMinified);
   });

@@ -1,49 +1,46 @@
-const fse = require('fs-extra')
-const path = require('path')
-const { promisify } = require('util')
-const ejsRenderFile = promisify(require('ejs').renderFile)
-const globP = promisify(require('glob'))
-const glob = require('glob')
-const config = require('../site.config')
-const dataUser = require('../src/data/user')
-const minify = require('html-minifier').minify;
-const srcPath = './src'
-const distPath = './public'
+  const fse = require('fs-extra')
+  const path = require('path')
+  const ejs = require('ejs')
+  const glob = require('glob')
+  const config = require('../site.config')
+  const dataUser = require('../src/data/user')
+  const minify = require('html-minifier').minify;
+  const srcPath = './src'
+  const distPath = './public'
 
-// clear destination folder and make a copy
-fse.emptyDirSync(distPath)
-const filesToAssets = glob.sync('**/*.@(main.css|jpg)', { cwd: `${srcPath}/assets` })
-filesToAssets.forEach((file) =>{
-  fse.copySync(`${srcPath}/assets/${file}`, `${distPath}/assets/${file}`)
-})
-// read page templates
-globP('**/*.ejs', { cwd: `${srcPath}/pages` })
-  .then((files) => {
-    files.forEach((file) => {
-      const fileData = path.parse(file)
-      const destPath = path.join(distPath, fileData.dir)
-
-      let pageContent;
-      // create destination directory
-      fse.mkdirs(destPath)
-        .then(() => {
-          // render page
-          return ejsRenderFile(`${srcPath}/pages/${file}`, Object.assign({}, config,dataUser))
-        })
-        .then((pageContents) => {
-          // render layout with page contents
-          return ejsRenderFile(`${srcPath}/layouts/default.ejs`, Object.assign({}, config,dataUser, { body: pageContents }))
-        })
-        .then((layoutContent) => {
-          // save the html file and minify
-          layoutContent =  minify(layoutContent, {
-            removeAttributeQuotes: true,
-            collapseWhitespace:true
-          });
-
-          fse.writeFile(`${distPath}/${fileData.name}.html`, layoutContent)
-        })
-        .catch((err) => { console.error(err) })
-    })
+  // clear destination folder and make a copy
+  fse.emptyDirSync(distPath)
+  const filesToAssets = glob.sync('**/*.@(main.css|jpg)', { cwd: `${srcPath}/assets` })
+  filesToAssets.forEach((file) =>{
+    fse.copySync(`${srcPath}/assets/${file}`, `${distPath}/assets/${file}`)
   })
-  .catch((err) => { console.error(err) })
+  // read pages
+  const files = glob.sync('**/*.ejs', { cwd: `${srcPath}/pages` });
+  files.forEach((file, i) => {
+    const fileData = path.parse(file);
+    const destPath = path.join(distPath, fileData.dir);
+
+    // create destination directory
+    fse.mkdirsSync(destPath);
+
+    pageContent = ejs.render(`${srcPath}/pages/${file}`, Object.assign({}, config,dataUser))
+    // render layout with page contents
+    const layout = 'default';
+    const layoutFileName = `${srcPath}/layouts/${layout}.ejs`;
+    const layoutData = fse.readFileSync(layoutFileName, 'utf-8');
+    const completePage = ejs.render(
+      layoutData,
+      Object.assign({}, {
+        body: pageContent,
+        config,
+        dataUser
+      })
+    );
+    //Minify the html
+    completePage =  minify(completePage, {
+      removeAttributeQuotes: true,
+      collapseWhitespace:true
+    });
+    // save the html file
+    fse.writeFileSync(`${destPath}/${fileData.name}.html`, completePage);
+  });

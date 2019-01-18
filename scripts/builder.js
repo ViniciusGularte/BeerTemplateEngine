@@ -2,9 +2,10 @@
   const path = require('path')
   const ejs = require('ejs')
   const glob = require('glob')
+  const minify = require('html-minifier').minify;
+  
   const config = require('../site.config')
   const dataUser = require('../src/data/user')
-  const minify = require('html-minifier').minify;
   const srcPath = './src'
   const distPath = './public'
 

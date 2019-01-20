@@ -23,3 +23,11 @@ $user_container_main_color: 'gray';
 .user__bio{
   color:$user_container_main_color;
 }
+.user_links{
+  margin-bottom: 70px;
+}
+.user_links .icons_images{
+  width: 60px;
+  height: 60px;
+  margin-left: 4%;
+}

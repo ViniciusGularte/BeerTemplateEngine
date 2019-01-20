@@ -1,6 +1,6 @@
-$user_container_background_color : '';
-$user_container_main_color: '';
-.user-info{
+$user_container_background_color : aliceblue;
+$user_container_main_color: 'gray';
+.user{
   grid-column: 2 / 3;
   grid-area: user-info;
   background-color: $user_container_background_color;

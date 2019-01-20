@@ -21,7 +21,7 @@ $user_container_main_color: 'gray';
   color: $user_container_main_color - 50;
 }
 .user__bio{
-  color:$user_container_main_color;
+  color: $user_container_main_color;
 }
 .user_links{
   margin-bottom: 70px;
@@ -30,4 +30,25 @@ $user_container_main_color: 'gray';
   width: 60px;
   height: 60px;
   margin-left: 4%;
+}
+@media (max-width: 600px) {
+  .user{
+    grid-column:auto;
+    grid-area: user-info;
+    background-color: $user_container_background_color;
+    padding-top: 4%;
+  }
+  .user_links .icons_images{
+    width: 30px;
+    height: 30px;
+    margin-left: 4%;
+  }
+  .user__img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  .user_links{
+    margin-bottom: 20px;
+  }
 }

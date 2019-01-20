@@ -1,5 +1,6 @@
 module.exports = {
   user: {
+    site_title:'Vinicius Gularte',
     name: 'Vinicius Gularte Martin',
     description: 'Developer from Brazil',
     github_url: 'https://github.com/ViniciusGularte',

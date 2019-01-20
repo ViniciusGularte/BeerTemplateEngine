@@ -1,8 +1,9 @@
 
 module.exports = {
   site: {
-    title: 'ViniTemplateEngine',
     description: 'Micro Static Site Generator in Node.js',
+    author:'Vinicius Gularte',
+    footer:'BeerTemplate',
     basePath: process.env.NODE_ENV === 'production' ? '/' : '',
   },
   build: {

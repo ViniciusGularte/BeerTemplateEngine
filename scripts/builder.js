@@ -11,7 +11,7 @@
 
   // clear destination folder and make a copy
   fse.emptyDirSync(distPath)
-  const filesToAssets = glob.sync('**/*.@(main.css|svg)', { cwd: `${srcPath}/assets` })
+  const filesToAssets = glob.sync('**/*.@(main.css|svg|ico|webmanifest)', { cwd: `${srcPath}/assets` })
   filesToAssets.forEach((file) =>{
     fse.copySync(`${srcPath}/assets/${file}`, `${distPath}/assets/${file}`)
   })

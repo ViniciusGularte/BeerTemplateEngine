@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "sass ./src/assets/scss/style.main.scss:./src/assets/css/style.main.css --style compressed && node ./scripts/builder",
-    "serve": "serve ./public",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "serve ./public"
   },
   "repository": {
     "type": "git",

@@ -1,4 +1,4 @@
-- [ ] Refactore builder
+- [x] Refactore builder
 - [x] Create sass styles
 - [x] Minify all html + css
 - [ ] Auto Deploy in github pages

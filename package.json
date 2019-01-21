@@ -1,5 +1,5 @@
 {
-  "name": "portfoliotemplateengine",
+  "name": "BeerTemplateEngine",
   "version": "1.0.0",
   "description": "My own template engine for make portfolios",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ViniciusGularte/ViniTemplateEngine.git"
+    "url": "git+https://github.com/ViniciusGularte/BeerTemplateEngine.git"
   },
   "keywords": [
     "templateengine"
@@ -17,9 +17,9 @@
   "author": "Vinicius Gularte",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/ViniciusGularte/ViniTemplateEngine/issues"
+    "url": "https://github.com/ViniciusGularte/BeerTemplateEngine/issues"
   },
-  "homepage": "https://github.com/ViniciusGularte/ViniTemplateEngine#readme",
+  "homepage": "https://github.com/ViniciusGularte/BeerTemplateEngine#readme",
   "dependencies": {
     "dotenv": "^6.2.0",
     "ejs": "^2.6.1",

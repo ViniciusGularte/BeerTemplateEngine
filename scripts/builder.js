@@ -5,7 +5,7 @@
   const minify = require('html-minifier').minify;
 
   const config = require('../site.config')
-  const dataUser = require('../src/data/user')
+  const dataUser = require('../user')
   const srcPath = './src'
   const distPath = './public'
 

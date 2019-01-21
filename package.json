@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ViniciusGularte/ViniTemplateEngine#readme",
   "dependencies": {
+    "dotenv": "^6.2.0",
     "ejs": "^2.6.1",
     "fs-extra": "^7.0.1",
     "glob": "^7.1.3",

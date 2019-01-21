@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 module.exports = {
   site: {
     description: 'Micro Static Site Generator in Node.js',

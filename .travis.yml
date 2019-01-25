@@ -9,5 +9,9 @@ before_deploy:
 
 deploy:
   provider: surge
+  skip_cleanup: true
   project: ./public/
-  domain: viniciusgularte.surge.sh  
+  domain: viniciusgularte.surge.sh
+  on:
+    branch: master
+ 

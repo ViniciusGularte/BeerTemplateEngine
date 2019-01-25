@@ -35,7 +35,7 @@ rm -rf .git && git init && npm init
 **3. Install the dependencies:**
 
 ```sh
-npm install
+npm install && npm install - g surge
 ```
 
 > You're done installing! Now let's get started developing.
@@ -56,4 +56,14 @@ npm install
     github_nickname:'viniciusgularte',
 }
 ```
+**2. Run the build and server**
+
+```sh
+npm run build && surge
+```
+> Create an account with e-mail + password and provide the project patch (in public folder).
+
+**3. Choose the domain**
+
+> Put the name you want follow by **.surge.sh**.
 

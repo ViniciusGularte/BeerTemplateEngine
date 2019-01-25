@@ -12,7 +12,7 @@
 
 #### Nota Google PageSpeed Insights
 <p align="center">
-  <img witdth="400" height="400" src="google.png"/>
+  <img witdth="400" height="300" src="google.png"/>
 </p>
 
 #### Configuração

@@ -6,9 +6,7 @@
 
 ### Creating your portfolio page has never been too easier. :beers:
 
-##  Example
-
-#### [Link](https://viniciusgularte.github.io/BeerTemplateEngine/)
+##  [Example](https://viniciusgularte.github.io/BeerTemplateEngine/)
 
 #### Google PageSpeed Insights
 <p align="center">
@@ -41,4 +39,21 @@ npm install
 ```
 
 > You're done installing! Now let's get started developing.
+
+## Starting create your portfolio card
+
+**1. Change the variables in [user.js](https://github.com/ViniciusGularte/BeerTemplateEngine/blob/master/user.js)**
+
+```javascript
+ user: {
+    site_title:'Vinicius Gularte Web Developer',
+    name: 'Vinicius Gularte Martin',
+    description: 'Developer from Brazil and writer in medium',
+    github_url:  'https://github.com/ViniciusGularte',
+    linkedin_url:'https://www.linkedin.com/in/viniciusgularte/',
+    github_image:'https://avatars3.githubusercontent.com/u/25805846?s=460&v=4',
+    project_name:'BeerTemplateEngine',
+    github_nickname:'viniciusgularte',
+}
+```
 

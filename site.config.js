@@ -5,6 +5,6 @@ module.exports = {
     description: 'Micro Static Site Generator in Node.js',
     author:'Vinicius Gularte',
     footer:'BeerTemplate',
-    basePath: process.env.NODE_ENV === 'production' ? '' : `https://${config.user.github_nickname}.github.io/${config.user.project_name}`,
+    basePath: process.env.NODE_ENV === 'production' ? '' : `https://${config.user.site_name}.surge.sh`,
   }
 };

@@ -4,17 +4,41 @@
 
 ## Beer Template Engine
 
-### Criar sua pagina de portfolio nunca foi tão facíl :beers:
+### Creating your portfolio page has never been too easier. :beers:
 
-##  Exemplo
+##  Example
 
 #### [Link](https://viniciusgularte.github.io/BeerTemplateEngine/)
 
-#### Nota Google PageSpeed Insights
+#### Google PageSpeed Insights
 <p align="center">
-  <img witdth="400" height="300" src="google.png"/>
+  <img witdth="400" height="280" src="google.png"/>
 </p>
 
-#### Configuração
+## Installation
 
-<b>TODO</b>
+**1. Clone this repo:**
+
+```sh
+git clone --depth 1 https://github.com/viniciusgularte/BeerTemplateEngine  my-app
+cd my-app
+```
+
+
+**2. Make it your own:**
+
+```sh
+rm -rf .git && git init && npm init
+```
+
+> :information_source: This re-initializes the repo and sets up your NPM project.
+
+
+**3. Install the dependencies:**
+
+```sh
+npm install
+```
+
+> You're done installing! Now let's get started developing.
+

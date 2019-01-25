@@ -52,7 +52,7 @@ npm install && npm install - g surge
     github_url:  'https://github.com/ViniciusGularte',
     linkedin_url:'https://www.linkedin.com/in/viniciusgularte/',
     github_image:'https://avatars3.githubusercontent.com/u/25805846?s=460&v=4',
-    site_name:'BeerTemplateEngine',
+    site_name:'viniciusgularte',
 }
 ```
 **2. Run the build and server**

@@ -52,8 +52,7 @@ npm install && npm install - g surge
     github_url:  'https://github.com/ViniciusGularte',
     linkedin_url:'https://www.linkedin.com/in/viniciusgularte/',
     github_image:'https://avatars3.githubusercontent.com/u/25805846?s=460&v=4',
-    project_name:'BeerTemplateEngine',
-    github_nickname:'viniciusgularte',
+    site_name:'BeerTemplateEngine',
 }
 ```
 **2. Run the build and server**
@@ -65,5 +64,5 @@ npm run build && surge
 
 **3. Choose the domain**
 
-> Put the name you want follow by **.surge.sh**.
+> Put the name you want(Equal to variable site_name in **[user.js](https://github.com/ViniciusGularte/BeerTemplateEngine/blob/master/user.js)**)  follow by **.surge.sh**.
 

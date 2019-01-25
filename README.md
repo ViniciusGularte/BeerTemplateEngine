@@ -6,7 +6,7 @@
 
 ### Creating your portfolio page has never been too easier. :beers:
 
-##  [Example](https://viniciusgularte.github.io/BeerTemplateEngine/)
+##  [Example]()
 
 #### Google PageSpeed Insights
 <p align="center">
